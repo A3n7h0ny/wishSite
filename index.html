@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ A Special Wish ✨ | Birthday Prelude</title>
+<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Patrick Bompetshi" />
+<link rel="manifest" href="site.webmanifest" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #0A0A0A;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .prelude {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1508 50%, #0A0A0A 100%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+  }
+
+  .prelude-content {
+    max-width: 800px;
+    width: 90%;
+    padding: 60px 40px;
+    text-align: center;
+    animation: fadeInUp 1s ease;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .gold-star {
+    font-size: 24px;
+    letter-spacing: 12px;
+    color: #C9A84C;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  .wish-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 6vw, 48px);
+    color: #C9A84C;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .wish-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 5vw, 36px);
+    font-style: italic;
+    color: #F0E8D5;
+    line-height: 1.6;
+    margin: 30px 0;
+  }
+
+  .wish-message span {
+    color: #C9A84C;
+    font-weight: bold;
+  }
+
+  .divider {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+    margin: 30px auto;
+  }
+
+  .start-btn {
+    background: transparent;
+    border: 2px solid #C9A84C;
+    color: #C9A84C;
+    padding: 16px 48px;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .start-btn:hover {
+    background: #C9A84C;
+    color: #0A0A0A;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(201,168,76,0.3);
+  }
+
+  .footer-note {
+    margin-top: 50px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #A09070;
+    font-family: 'Cinzel', serif;
+  }
+
+  /* floating particles */
+  .particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .particle {
+    position: absolute;
+    background: radial-gradient(circle, #C9A84C, transparent);
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: float 15s infinite linear;
+  }
+  @keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.15; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* subtle music visualizer */
+  .music-visualizer {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    height: 30px;
+    z-index: 1001;
+    opacity: 0.6;
+  }
+  .music-bar {
+    width: 3px;
+    background: #C9A84C;
+    border-radius: 2px;
+    animation: soundWave 0.8s ease-in-out infinite alternate;
+  }
+  .music-bar:nth-child(1) { height: 10px; animation-delay: 0s; }
+  .music-bar:nth-child(2) { height: 18px; animation-delay: 0.1s; }
+  .music-bar:nth-child(3) { height: 14px; animation-delay: 0.2s; }
+  .music-bar:nth-child(4) { height: 22px; animation-delay: 0.3s; }
+  .music-bar:nth-child(5) { height: 12px; animation-delay: 0.4s; }
+  .music-bar:nth-child(6) { height: 16px; animation-delay: 0.5s; }
+  @keyframes soundWave {
+    0% { height: 4px; opacity: 0.3; }
+    100% { height: 24px; opacity: 1; }
+  }
+
+  @media (max-width: 600px) {
+    .prelude-content { padding: 40px 20px; }
+    .wish-message { font-size: 20px; }
+    .start-btn { padding: 12px 32px; font-size: 11px; letter-spacing: 4px; }
+    .music-visualizer { bottom: 20px; left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="particle-bg" id="particles"></div>
+
+<!-- Music visualizer bars (shows sound is playing) -->
+<div class="music-visualizer" id="musicVisualizer">
+  <div class="music-bar"></div>
+  <div class="music-bar"></div>
+  <div class="music-bar"></div>
+  <div class="music-bar"></div>
+  <div class="music-bar"></div>
+  <div class="music-bar"></div>
+</div>
+
+<div class="prelude" id="preludePage">
+  <div class="prelude-content">
+    <div class="gold-star">✦ ✦ ✦</div>
+    
+    <h1 class="wish-title">We Wish You...</h1>
+    
+    <div class="wish-message">
+      A day as <span>golden</span> as your heart,<br>
+      A year as <span>bright</span> as your smile,<br>
+      A life as <span>legendary</span> as you are.<br><br>
+      Happy Birthday, Dad.
+    </div>
+    
+    <div class="divider"></div>
+    <a href="home.html" style="text-decoration: none;">
+    <button class="start-btn" id="startCelebrationBtn">
+      ✦ START CELEBRATION ✦
+    </button>
+    </a>
+    <div class="footer-note">
+      ✧ tap to begin the journey ✧
+    </div>
+  </div>
+</div>
+
+<!-- PRELUDE AUDIO - Auto-plays with preload -->
+<audio id="preludeAudio" loop preload="auto" autoplay>
+  <!-- Replace with your prelude music file -->
+  <source src="sound2.mp3" type="audio/mpeg">
+  <!-- Fallback: Soft piano intro music -->
+  <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=soft-piano-100890.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // ========== PRELUDE AUTO-PLAY MUSIC ==========
+  const preludeAudio = document.getElementById('preludeAudio');
+  const musicVisualizer = document.getElementById('musicVisualizer');
+  let musicPlaying = false;
+
+  // Function to start music (called on any user interaction)
+  function startMusic() {
+    if (!musicPlaying && preludeAudio) {
+      preludeAudio.play().then(() => {
+        musicPlaying = true;
+        musicVisualizer.style.opacity = '0.8';
+      }).catch((err) => {
+        console.log('Audio play needed user interaction first');
+        // Still show visualizer but waiting
+        musicVisualizer.style.opacity = '0.3';
+      });
+    }
+  }
+
+  // Auto-play attempt as soon as page loads (works in most browsers after user clicks anywhere)
+  document.addEventListener('click', function initAudio() {
+    startMusic();
+    document.removeEventListener('click', initAudio);
+  }, { once: true });
+
+  // Also try to play on page load (some browsers allow if page is interacted)
+  window.addEventListener('load', () => {
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      preludeAudio.play().then(() => {
+        musicPlaying = true;
+        musicVisualizer.style.opacity = '0.8';
+      }).catch(() => {
+        // Will wait for user click
+        musicVisualizer.style.opacity = '0.3';
+      });
+    }, 100);
+  });
+
+  // Create floating particles
+  const particleContainer = document.getElementById('particles');
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    const size = Math.random() * 4 + 2;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDuration = Math.random() * 10 + 8 + 's';
+    particle.style.animationDelay = Math.random() * 5 + 's';
+    particleContainer.appendChild(particle);
+  }
+
+  // Confetti effect
+  function createConfetti() {
+    for (let i = 0; i < 60; i++) {
+      const conf = document.createElement('div');
+      conf.style.position = 'fixed';
+      conf.style.width = Math.random() * 6 + 3 + 'px';
+      conf.style.height = Math.random() * 6 + 3 + 'px';
+      conf.style.background = `hsl(${Math.random() * 60 + 40}, 100%, 60%)`;
+      conf.style.left = Math.random() * 100 + '%';
+      conf.style.top = '-10px';
+      conf.style.pointerEvents = 'none';
+      conf.style.zIndex = '2000';
+      conf.style.borderRadius = '2px';
+      conf.style.animation = `fall ${Math.random() * 1.5 + 0.8}s linear forwards`;
+      document.body.appendChild(conf);
+      setTimeout(() => conf.remove(), 1500);
+    }
+  }
+
+  // Add confetti animation style
+  if (!document.getElementById('confettiStyle')) {
+    const style = document.createElement('style');
+    style.id = 'confettiStyle';
+    style.textContent = `@keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }`;
+    document.head.appendChild(style);
+  }
+
+  // Start celebration - redirect to main page
+  const startBtn = document.getElementById('startCelebrationBtn');
+  
+  function startCelebration() {
+    // Play exit effect
+    createConfetti();
+    
+    // Fade out prelude
+    const prelude = document.getElementById('preludePage');
+    prelude.style.transition = 'opacity 0.8s ease';
+    prelude.style.opacity = '0';
+    
+    // Stop prelude music gracefully
+    if (preludeAudio && musicPlaying) {
+      preludeAudio.pause();
+      preludeAudio.currentTime = 0;
+    }
+    
+    // Redirect to main celebration page after fade
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 800);
+  }
+  
+  startBtn.addEventListener('click', startCelebration);
+  
+  // Keyboard support (Enter key)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      startCelebration();
+    }
+  });
+
+  // Touch anywhere on prelude also starts music (silent helper)
+  document.body.addEventListener('touchstart', function() {
+    startMusic();
+  }, { once: true });
+  
+// ========== FIXED FLYING PHOTOS & SPARKLE BUTTONS ==========
+
+// Create flying photos with REAL looking effects (no broken images)
+function createFlyingPhoto() {
+  const flyingContainer = document.getElementById('flyingPhotosContainer');
+  if (!flyingContainer) return;
+  
+  const photo = document.createElement('div');
+  photo.className = 'flying-photo';
+  
+  // Use beautiful golden/memory themed DIVs instead of broken image links
+  const memoryMessages = ['📸', '✨', '🎂', '💛', '🌟', '🎈', '📷', '💝', '🎁', '👑'];
+  const randomMsg = memoryMessages[Math.floor(Math.random() * memoryMessages.length)];
+  
+  photo.innerHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #C9A84C, #8B6914);display:flex;align-items:center;justify-content:center;font-size:40px;border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,0.3);">${randomMsg}</div>`;
+  photo.style.position = 'fixed';
+  photo.style.width = '80px';
+  photo.style.height = '80px';
+  
+  const randomY = Math.random() * (window.innerHeight - 150);
+  photo.style.top = randomY + 'px';
+  photo.style.left = '-100px';
+  photo.style.pointerEvents = 'none';
+  photo.style.zIndex = '999';
+  photo.style.opacity = '0';
+  photo.style.transition = 'all 0.1s ease';
+  
+  flyingContainer.appendChild(photo);
+  
+  // Animate
+  setTimeout(() => {
+    photo.style.transition = 'transform 1.5s ease-out, opacity 0.3s';
+    photo.style.transform = `translateX(${window.innerWidth + 100}px) rotate(15deg)`;
+    photo.style.opacity = '1';
+  }, 10);
+  
+  // Remove after animation
+  setTimeout(() => {
+    if (photo && photo.parentNode) photo.remove();
+  }, 2000);
+}
+
+let flyingInterval = null;
+
+function startFlyingPhotos() {
+  if (flyingInterval) clearInterval(flyingInterval);
+  // Create 5 photos immediately
+  for(let i = 0; i < 5; i++) {
+    setTimeout(() => createFlyingPhoto(), i * 200);
+  }
+  // Then continue every 1.5 seconds
+  flyingInterval = setInterval(createFlyingPhoto, 1500);
+  // Also trigger confetti for extra magic
+  for(let i = 0; i < 30; i++) createMiniConfetti();
+}
+
+function stopFlyingPhotos() {
+  if (flyingInterval) {
+    clearInterval(flyingInterval);
+    flyingInterval = null;
+  }
+}
+
+// Fix Sparkle button - simpler, more reliable
+document.getElementById('sparkleBtn')?.addEventListener('click', () => {
+  // Massive confetti burst
+  for(let i = 0; i < 100; i++) {
+    setTimeout(() => createMiniConfetti(), i * 20);
+  }
+  // Flash effect on name
+  const bigName = document.querySelector('#hero .big-name');
+  if (bigName) {
+    bigName.style.transition = 'text-shadow 0.2s';
+    bigName.style.textShadow = '0 0 30px gold, 0 0 60px #C9A84C';
+    setTimeout(() => {
+      bigName.style.textShadow = '';
+    }, 500);
+  }
+  // Add floating sparkle elements
+  for(let i = 0; i < 30; i++) {
+    const sparkle = document.createElement('div');
+    sparkle.innerHTML = '✨';
+    sparkle.style.position = 'fixed';
+    sparkle.style.left = Math.random() * window.innerWidth + 'px';
+    sparkle.style.top = Math.random() * window.innerHeight + 'px';
+    sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.zIndex = '9999';
+    sparkle.style.opacity = '1';
+    sparkle.style.animation = `sparkleFloat ${Math.random() * 1 + 0.5}s ease-out forwards`;
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1000);
+  }
+});
+
+// Fix Fly Memories button
+document.getElementById('flyPhotosBtn')?.addEventListener('click', () => {
+  startFlyingPhotos();
+  // Extra confetti
+  for(let i = 0; i < 50; i++) createMiniConfetti();
+});
+
+// Add sparkle float animation
+if (!document.getElementById('sparkleFloatStyle')) {
+  const sparkleStyle = document.createElement('style');
+  sparkleStyle.id = 'sparkleFloatStyle';
+  sparkleStyle.textContent = `
+    @keyframes sparkleFloat {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(0); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(sparkleStyle);
+}
+
+// Make sure flying container exists
+if (!document.getElementById('flyingPhotosContainer')) {
+  const container = document.createElement('div');
+  container.id = 'flyingPhotosContainer';
+  container.style.position = 'fixed';
+  container.style.top = '0';
+  container.style.left = '0';
+  container.style.width = '100%';
+  container.style.height = '100%';
+  container.style.pointerEvents = 'none';
+  container.style.zIndex = '998';
+  document.body.appendChild(container);
+}
+
+// Override Surprise button to include flying photos
+const surpriseBtn = document.getElementById('surpriseBtn');
+if (surpriseBtn) {
+  const oldClick = surpriseBtn.onclick;
+  surpriseBtn.addEventListener('click', () => {
+    startFlyingPhotos();
+    for(let i = 0; i < 120; i++) createMiniConfetti();
+    blowAllCandles();
+  });
+}
+</script>
+</body>
+</html>
